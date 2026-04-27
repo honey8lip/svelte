@@ -1,35 +1,51 @@
-name: 'Feature Request'
-description: Request a new Svelte feature
-labels: [enhancement]
+name: Feature Request
+description: Suggest an idea or enhancement for Svelte
+labels: ['feature request']
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to request this feature! If your feature request is complex or substantial enough to warrant in-depth discussion, maintainers may close the issue and ask you to open an [RFC](https://github.com/sveltejs/rfcs).
+        Thanks for taking the time to suggest a feature! Please fill out the form below.
+        Before submitting, please check if there's already an existing issue or discussion for your idea.
+
   - type: textarea
     id: problem
     attributes:
       label: Describe the problem
-      description: Please provide a clear and concise description the problem this feature would solve. The more information you can provide here, the better.
+      description: Is your feature request related to a problem? Please describe it clearly.
       placeholder: I'm always frustrated when...
     validations:
-      required: true
+      required: false
+
   - type: textarea
     id: solution
     attributes:
-      label: Describe the proposed solution
-      description: Please provide a clear and concise description of what you would like to happen.
-      placeholder: I would like to see...
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+      placeholder: I would like...
     validations:
       required: true
-  - type: dropdown
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
+
+  - type: textarea
     id: importance
     attributes:
       label: Importance
-      description: How important is this feature to you?
-      options:
-        - nice to have
-        - would make my life easier
-        - i cannot use svelte without it
+      description: How important is this feature to you? Would you be willing to submit a PR to implement it?
+      placeholder: This would be very helpful because...
     validations:
-      required: true
+      required: false
+
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Contribution
+      options:
+        - label: I am willing to submit a pull request to implement this feature
