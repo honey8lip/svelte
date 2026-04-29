@@ -1,38 +1,93 @@
-<a href="https://svelte.dev">
-	<picture>
-		<source media="(prefers-color-scheme: dark)" srcset="assets/banner_dark.png">
-		<img src="assets/banner.png" alt="Svelte - web development for the rest of us" />
-	</picture>
-</a>
+# Svelte
 
-[![License](https://img.shields.io/npm/l/svelte.svg)](LICENSE.md) [![Chat](https://img.shields.io/discord/457912077277855764?label=chat&logo=discord)](https://svelte.dev/chat)
+> Cybernetically enhanced web apps
+
+This is a fork of [sveltejs/svelte](https://github.com/sveltejs/svelte), maintained for experimental features and performance investigations.
 
 ## What is Svelte?
 
-Svelte is a new way to build web applications. It's a compiler that takes your declarative components and converts them into efficient JavaScript that surgically updates the DOM.
+Svelte is a tool for building fast web applications. It is similar to JavaScript frameworks such as React and Vue, which share a goal of making it easy to build slick interactive user interfaces.
 
-Learn more at the [Svelte website](https://svelte.dev), or stop by the [Discord chatroom](https://svelte.dev/chat).
+But there's a crucial difference: Svelte converts your app into ideal JavaScript at *build time*, rather than interpreting your application code at *run time*. This means you don't pay the performance cost of the framework's abstractions, and you don't incur a penalty when your app first loads.
 
-## Supporting Svelte
+You can learn more about Svelte at the [official documentation](https://svelte.dev/docs).
 
-Svelte is an MIT-licensed open source project with its ongoing development made possible entirely by fantastic volunteers. If you'd like to support their efforts, please consider:
+## Fork Differences
 
-- [Becoming a backer on Open Collective](https://opencollective.com/svelte).
+This fork includes:
+- Performance investigation tooling (see `.agents/skills/performance-investigation/`)
+- Experimental compiler optimizations
+- Additional changeset workflows
 
-Funds donated via Open Collective will be used for compensating expenses related to Svelte's development such as hosting costs. If sufficient donations are received, funds may also be used to support Svelte's development more directly.
+## Getting Started
 
-## Roadmap
+### Prerequisites
 
-You may view [our roadmap](https://svelte.dev/roadmap) if you'd like to see what we're currently working on.
+- Node.js >= 16
+- pnpm >= 8
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-org/svelte.git
+cd svelte
+
+# Install dependencies
+pnpm install
+```
+
+### Building
+
+```bash
+# Build all packages
+pnpm build
+
+# Build in watch mode
+pnpm dev
+```
+
+### Testing
+
+```bash
+# Run all tests
+pnpm test
+
+# Run tests for a specific package
+pnpm test --filter=svelte
+
+# Run tests in watch mode
+pnpm test:watch
+```
+
+## Repository Structure
+
+```
+svelte/
+├── packages/
+│   ├── svelte/          # Core Svelte compiler and runtime
+│   └── svelte-check/    # Type checking tool
+├── sites/
+│   └── svelte.dev/      # Documentation site
+├── .agents/
+│   └── skills/          # Agent skill definitions
+└── .changeset/          # Changesets for versioning
+```
 
 ## Contributing
 
-Please see the [Contributing Guide](CONTRIBUTING.md) and the [`svelte`](packages/svelte) package for information on contributing to Svelte.
+Please read the [contributing guide](CONTRIBUTING.md) before submitting pull requests.
 
-## Is svelte.dev down?
+### Creating a Changeset
 
-Probably not, but it's possible. If you can't seem to access any `.dev` sites, check out [this SuperUser question and answer](https://superuser.com/q/1413402).
+When making changes that should be released, create a changeset:
+
+```bash
+pnpm changeset
+```
+
+Follow the prompts to describe your changes.
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE)
